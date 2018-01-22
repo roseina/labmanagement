@@ -9,41 +9,43 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
+                
                 <div class="panel-body">
-                     
-                 <form class="" method="POST" action="{{ route('login') }}">
+                    @if (count($errors) > 0)
+                    <div class="center-margin text-center alert-danger alert">
+                      @if($errors->first('throttle'))
+                      {{$errors->first('throttle')}}
+                      @else
+                    Incorrect Username / Password!!
+                      @endif
+                  </div>
+                  @endif
+
+                  <form class="" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
-                    <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                    <div class="form-group">
                         <input class="form-control" placeholder="Username" name="username" type="text" value="{{ old('username') }}" required autofocus>
-                        @if ($errors->has('username'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('username') }}</strong>
-                        </span>
-                        @endif
+
                     </div>
-                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                    <div class="form-group">
                         <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                         @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+
                     </div>
-              
+
                     <div class="checkbox">
                         <label>
                             <input name="remember" type="checkbox" value="Remember Me">Remember Me
                         </label>
                     </div>
-                      <button type="submit" class="btn btn-lg btn-success btn-block">
-                                    Login
-                                </button>
+                    <button type="submit" class="btn btn-lg btn-success btn-block">
+                        Login
+                    </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        Forgot Your Password?
+                    </a>
                     <!-- Change this to a button or input when using this as a form -->
-                    
+
 
                 </form>
             </div>

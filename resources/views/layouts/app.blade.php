@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,23 +25,16 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        {{-- <nav class="navbar navbar-default navbar-static-top"> --}}
             <div class="container">
-                <div class="navbar-header">
+               {{--  <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand pull-right">
+                    <a class="navbar-brand">
                         Lab Management
                     </a>
-                </div>
+                </div> --}}
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
@@ -79,7 +72,7 @@
                     </ul> --}}
                 </div>
             </div>
-        </nav>
+        {{-- </nav> --}}
 
         @yield('content')
     </div>
