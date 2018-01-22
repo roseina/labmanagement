@@ -11,4 +11,8 @@ class OrganizationController extends Controller
     {
     	return view('admin.organization.index');
     }
+    public function create()
+    {
+    	return view('admin.organization.create');
+    }
 }
