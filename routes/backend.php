@@ -3,4 +3,5 @@
 Route::get('admin/organizations','Admin\OrganizationController@index');
 Route::get('admin/addorganization','Admin\OrganizationController@create');
 Route::post('storeorganization','Admin\OrganizationController@store');
+Route::get('admin/editorganization','Admin\OrganizationController@edit')
 ?>

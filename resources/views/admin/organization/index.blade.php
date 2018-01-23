@@ -2,9 +2,9 @@
 @section('stylesheets')
 <!-- DataTables CSS -->
 
-<link href="{{asset('css/dataTables/dataTables.bootstrap.css')}}" rel="stylesheet">
+<link href="{{asset('backend/css/dataTables/dataTables.bootstrap.css')}}" rel="stylesheet">
 <!-- DataTables Responsive CSS -->
-<link href="{{asset('css/dataTables/dataTables.responsive.css')}}" rel="stylesheet">
+<link href="{{asset('backend/css/dataTables/dataTables.responsive.css')}}" rel="stylesheet">
 
 
 @endsection
@@ -15,8 +15,10 @@
 	<div class="col-lg-12">
 		<h1 class="page-header">Organization</h1>
 	</div>
+
 	<!-- /.col-lg-12 -->
 </div>
+@include('errors.errors')
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
@@ -32,7 +34,7 @@
 						<thead>
 							<tr>
 								<th>S.N</th>
-								<th>Logo</th>
+								<th>image</th>
 								<th>Image</th>
 								<th>Organization Name</th>
 								<th>Details</th>
@@ -48,8 +50,14 @@
 							@foreach($allDatas as $d )
 							<tr>
 								<td>{{$a++}}</td>
-								<td>Internet Explorer 4.0</td>
-								<td>Win 95+</td>
+								<td>@if($d->logo!= '' && file_exists(public_path('uploads/organizations/logos' .$d->logo)))
+
+            <img src= {{URL::asset('uploads/organizations/logos'.$d->logo)}} width="100" height="200">
+            @else  <img src= {{URL::asset('backend/image-resources/image_notfound.png')}} width="100" height="100">@endif</td>
+								<td>@if($d->image!= '' && file_exists(public_path('uploads/organizations/images' .$d->image)))
+
+            <img src= {{URL::asset('uploads/organizations/images'.$d->image)}} width="100" height="200">
+            @else  <img src= {{URL::asset('backend/image-resources/image_notfound.png')}} width="100" height="100">@endif</td>
 								<td>{{$d->organization_name}}</td>
 								<td>
 									<ul>
@@ -71,7 +79,8 @@
 										<li>Fax: {{$d->fax}}</li>
 									</td>
 									<td><a class="btn btn-info" href="{{url('admin/editorganization?identifier='.$d->slug)}}">Edit</a>
-										<a class="btn btn-danger">Delete</a></td>
+
+										<a class="btn btn-danger" style="margin-top:5px;">Delete</a></td>
 								</tr>
 								@endforeach
 
@@ -91,8 +100,8 @@
 	@endsection
 
 	@section('scripts')
-	<script src="{{asset('js/dataTables/jquery.dataTables.min.js')}}"></script>
-	<script src="{{asset('js/dataTables/dataTables.bootstrap.min.js')}}"></script>
+	<script src="{{asset('backend/js/dataTables/jquery.dataTables.min.js')}}"></script>
+	<script src="{{asset('backend/js/dataTables/dataTables.bootstrap.min.js')}}"></script>
 
 
 	<!-- Page-Level Demo Scripts - Tables - Use for reference -->

@@ -29,6 +29,7 @@ class OrganizationController extends Controller
 	{
 		$input=$request->all();
 		if (Input::hasFile('image')) {
+
 			$path = public_path('uploads/organizations/images');
 			if (!file_exists($path)) {
 				mkdir($path, 0777, true);
@@ -74,8 +75,19 @@ return redirect($this->redirectUrl)->withErrors(['alert-success'=>'The data has 
 		{
 			return redirect($this->redirectUrl)->withErrors(['alert-danger'=>'The data couldnot be saved now!']);
 		}
-
-
-
+	}
+	public function edit()
+	{
+		$slug=Input::get('identifier');
+		$editData=$this->model->where('slug',$slug)->first();
+		if(empty($editData))
+		{
+			return redirect($this->redirectUrl)->withErrors(['alert-danger'=>'Sorry,the data was not found!']);
+		}
+		
+		else
+		{
+			return view('admin.organization.edit',compact('editData'));
+		}
 	}
 }

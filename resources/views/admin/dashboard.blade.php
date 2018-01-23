@@ -1,9 +1,9 @@
 @extends('admin.master')
 @section('stylesheets')
 <!-- Morris Charts CSS -->
-<link href="{{asset('css/morris.css')}}" rel="stylesheet">
+<link href="{{asset('backend/css/morris.css')}}" rel="stylesheet">
 <!-- Timeline CSS -->
-<link href="{{asset('css/timeline.css')}}" rel="stylesheet">
+<link href="{{asset('backend/css/timeline.css')}}" rel="stylesheet">
 
 @endsection
 @section('content')
@@ -107,8 +107,8 @@
 </div>
 @section('scripts')
   <!-- Morris Charts JavaScript -->
-        <script src="{{asset('js/raphael.min.js')}}"></script>
-        <script src="{{asset('js/morris.min.js')}}"></script>
-        <script src="{{asset('js/morris-data.js')}}"></script>
+        <script src="{{asset('backend/js/raphael.min.js')}}"></script>
+        <script src="{{asset('backend/js/morris.min.js')}}"></script>
+        <script src="{{asset('backend/js/morris-data.js')}}"></script>
         @endsection
 @endsection
