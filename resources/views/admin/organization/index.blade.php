@@ -50,13 +50,14 @@
 							@foreach($allDatas as $d )
 							<tr>
 								<td>{{$a++}}</td>
-								<td>@if($d->logo!= '' && file_exists(public_path('uploads/organizations/logos' .$d->logo)))
+								<td>@if($d->logo!= '' && file_exists(public_path('uploads/organizations/logos/' .$d->logo)))
 
-            <img src= {{URL::asset('uploads/organizations/logos'.$d->logo)}} width="100" height="200">
+            <img src= {{URL::asset('uploads/organizations/logos/'.$d->logo)}} width="100" height="200">
             @else  <img src= {{URL::asset('backend/image-resources/image_notfound.png')}} width="100" height="100">@endif</td>
-								<td>@if($d->image!= '' && file_exists(public_path('uploads/organizations/images' .$d->image)))
 
-            <img src= {{URL::asset('uploads/organizations/images'.$d->image)}} width="100" height="200">
+								<td>@if($d->image!= '' && file_exists(public_path('uploads/organizations/images/' .$d->image)))
+
+            <img src= {{URL::asset('uploads/organizations/images/'.$d->image)}} width="100" height="200">
             @else  <img src= {{URL::asset('backend/image-resources/image_notfound.png')}} width="100" height="100">@endif</td>
 								<td>{{$d->organization_name}}</td>
 								<td>
