@@ -25,6 +25,7 @@ class CreateOrganizationsTable extends Migration
             $table->string('phone1')->nullable();
             $table->string('Phone 2')->nullable();
             $table->string('fax')->nullable();
+            $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->string('logo')->nullable();
             $table->timestamps();

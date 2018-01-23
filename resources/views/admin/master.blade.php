@@ -14,15 +14,13 @@
 
         <!-- MetisMenu CSS -->
         <link href="{{asset('css/metisMenu.min.css')}}" rel="stylesheet">
-
-        <!-- Timeline CSS -->
-        <link href="{{asset('css/timeline.css')}}" rel="stylesheet">
+ @yield('stylesheets')
+        
 
         <!-- Custom CSS -->
         <link href="{{asset('css/startmin.css')}}" rel="stylesheet">
 
-        <!-- Morris Charts CSS -->
-        <link href="{{asset('css/morris.css')}}" rel="stylesheet">
+        
 
         <!-- Custom Fonts -->
         <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -85,7 +83,7 @@
         </div>
 
         <!-- /#wrapper -->
-@yield('scripts')
+
         <!-- jQuery -->
         <script src="{{asset('js/jquery.min.js')}}"></script>
 
@@ -95,10 +93,8 @@
         <!-- Metis Menu Plugin JavaScript -->
         <script src="{{asset('js/metisMenu.min.js')}}"></script>
 
-        <!-- Morris Charts JavaScript -->
-        <script src="{{asset('js/raphael.min.js')}}"></script>
-        <script src="{{asset('js/morris.min.js')}}"></script>
-        <script src="{{asset('js/morris-data.js')}}"></script>
+      
+        @yield('scripts')
 
         <!-- Custom Theme JavaScript -->
         <script src="{{asset('js/startmin.js')}}"></script>
