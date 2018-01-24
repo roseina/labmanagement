@@ -11,16 +11,16 @@
     <title>Lab management</title>
 
     <!-- Styles -->
-        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+        <link href="{{asset('backend/css/bootstrap.min.css')}}" rel="stylesheet">
 
         <!-- MetisMenu CSS -->
-        <link href="{{asset('css/metisMenu.min.css')}}" rel="stylesheet">
+        <link href="{{asset('backend/css/metisMenu.min.css')}}" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="{{asset('css/startmin.css')}}" rel="stylesheet">
+        <link href="{{asset('backend/css/startmin.css')}}" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('backend/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     
 </head>
 <body>
@@ -79,16 +79,16 @@
 
     <!-- Scripts -->
     <!-- jQuery -->
-        <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('backend/js/jquery.min.js')}}"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('backend/js/bootstrap.min.js')}}"></script>
 
         <!-- Metis Menu Plugin JavaScript -->
-        <script src="{{asset('js/metisMenu.min.js')}}"></script>
+        <script src="{{asset('backend/js/metisMenu.min.js')}}"></script>
 
         <!-- Custom Theme JavaScript -->
-        <script src="{{asset('js/startmin.js')}}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{asset('backend/js/startmin.js')}}"></script>
+        <script src="{{ asset('backend/js/app.js') }}"></script>
 </body>
 </html>

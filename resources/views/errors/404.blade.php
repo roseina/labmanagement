@@ -1,30 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+.image-gallery
+{
+    background-image: url("backend/image-resources/404.jpg");
+}
+</style>
+<!-- Page Content -->
 
+<div id="page-wrapper image-gallery">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"></h1>
+                <div class="col-lg-8">
 
-<div class="center-vertical">
-    <div class="center-content row">
-
-        <div class="col-md-6 center-margin">
-            <div class="server-message wow bounceInDown inverse">
-                <h1>Error 404</h1>
-                <h2>Page not found</h2>
-                <p>The page you are looking for has been moved or no longer exists. Use the search field below to locate the page you were looking for.</p>
-
-                <form>
-                    <div class="input-group mrg25B mrg10T input-group-lg">
-                        <div class="input-group-btn">
-
-                        </div>
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                          !!OOPS!!
+                      </div>
+                      <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
                     </div>
-                    <a class="btn btn-lg btn-success" href="{{URL::to('/')}}">Return To Home Page</a>
-                </form>
+                    <div class="panel-footer">
+                        Panel Footer
+                    </div>
+                </div>
             </div>
+            <!-- /.col-lg-4 -->
         </div>
-
     </div>
+
+    <!-- /.col-lg-12 -->
 </div>
+<!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
 
-
+</div>
 @endsection

@@ -1,4 +1,10 @@
 <?php
+/* Users routes*/
+Route::get('admin/admin','Admin\UsersController@getAdmins');
+Route::get('admin/staffs','Admin\UsersController@getstaffs');
+Route::get('admin/users','Admin\UsersController@getusers');
+
+
 /* organizations route */
 Route::get('admin/organizations','Admin\OrganizationController@index');
 Route::get('admin/addorganization','Admin\OrganizationController@create');
