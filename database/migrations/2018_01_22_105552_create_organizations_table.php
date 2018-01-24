@@ -23,7 +23,7 @@ class CreateOrganizationsTable extends Migration
             $table->string('address1')->nullable();
             $table->string('address2')->nullable();
             $table->string('phone1')->nullable();
-            $table->string('Phone 2')->nullable();
+            $table->string('Phone2')->nullable();
             $table->string('fax')->nullable();
             $table->string('slug')->unique();
             $table->string('image')->nullable();
