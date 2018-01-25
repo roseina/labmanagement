@@ -14,7 +14,14 @@
             </li>
 
             <li class="">
-                <a href="#"><i class="fa fa-users fa-2x"></i> Users profile<span class="fa arrow"></span></a>
+                <a href="#">
+                    <i class="fa fa-users fa-2x">
+                        
+                    </i> Users profile
+                    <span class="fa arrow">
+                        
+                    </span>
+                </a>
                 <ul class="nav nav-second-level collapse">
                     <li>
 

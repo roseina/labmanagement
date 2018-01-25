@@ -1,8 +1,13 @@
 <?php
-/* Users routes*/
+/* admin-users routes*/
 Route::get('admin/admin','Admin\UsersController@getAdmins');
 Route::get('admin/staffs','Admin\UsersController@getstaffs');
 Route::get('admin/users','Admin\UsersController@getusers');
+Route::get('admin/editprofile', 'Admin\UsersController@editprofile');
+Route::post('admin/updateprofile','Admin\UsersController@updateprofile');
+Route::post('admin/updatepassword','Admin\UsersController@updatePassword');
+/*user routes */
+Route::get('admin/adduser','Admin\UsersController@addUser');
 
 
 /* organizations route */
