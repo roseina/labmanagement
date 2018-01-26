@@ -6,7 +6,7 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="{{url('/home')}}" class="active"><i class="fa fa-dashboard fa-2x"></i> Dashboard</a>
+                <a href="{{url('/admin/home')}}" class="active"><i class="fa fa-dashboard fa-2x"></i> Dashboard</a>
             </li>
 
             <li>
@@ -16,10 +16,10 @@
             <li class="">
                 <a href="#">
                     <i class="fa fa-users fa-2x">
-                        
+
                     </i> Users profile
                     <span class="fa arrow">
-                        
+
                     </span>
                 </a>
                 <ul class="nav nav-second-level collapse">

@@ -8,6 +8,7 @@ Route::post('admin/updateprofile','Admin\UsersController@updateprofile');
 Route::post('admin/updatepassword','Admin\UsersController@updatePassword');
 /*user routes */
 Route::get('admin/adduser','Admin\UsersController@addUser');
+Route::post('admin/storeuser','Admin\UsersController@storeUser');
 
 
 /* organizations route */

@@ -11,10 +11,10 @@
 |
 */
 Route::get('/', function () {
-    return view('auth.login');
+	return view('auth.login');
 });
 Route::get('/admin', function () {
-    return view('auth.login');
+	return view('auth.login');
 });
 Route::get('/admin/logout', 'Auth\LoginController@logout');
 
@@ -23,7 +23,7 @@ Route::get('/admin/logout', 'Auth\LoginController@logout');
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home', 'Admin\AdminController@index')->name('home');
+Route::get('/admin/home', 'Admin\AdminController@index')->name('home');
 @include('backend.php');
 
 

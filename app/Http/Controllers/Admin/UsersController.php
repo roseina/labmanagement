@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
+use Input;
+use Image;
 
 class UsersController extends Controller
 {
 	public function __construct(User $user)
 	{
 		$this->model=$user;
+
 	}
 	/* Admin level functions */
 
@@ -105,6 +108,50 @@ class UsersController extends Controller
 		{
 			return view('admin.users.admin.create');
 		}
-	}
+		public function storeUser(Request $request)
+		{
+			$input=$request->all();
+			$rules=[
+				'first_name'=>'required'
+
+			];
+			$messages=[
+
+
+
+			];
+			$validate=validator::make($input,$rules,$messages);
+			if($validate->fails())
+			{
+				return redirect()->back()->withErrors($validate)->withInput();
+			}
+			else
+			{
+				$input['name']=$request->first_name.' '.$request->middle_name.' '.$request->last_name;
+
+				if (Input::hasFile('signature')) {
+					$path = public_path('uploads/users/signatures');
+					if (!file_exists($path)) {
+						mkdir($path, 0777, true);
+					}
+					$directory = $path;
+					$signature_name = str_replace(' ', '', $request->organization_name) . uniqid();
+					$fileName = $signature_name . '_signature' . '.' . $request->file('signature')->getClientOriginalExtension();
+					$fileNameDir = $directory . '/' . $fileName;
+					$signature = Image::make($request->file('signature'));
+					$signature->fit(200, 200);
+					$signature->save($fileNameDir, 100);
+					$input['signature'] = $fileName;
+				}
+				if($this->model->create($input))
+				{
+					return redirect(url('admin/admin'))->withErrors(['alert-success'=>'The data has been successfully saved!']);
+				}
+				else
+				{
+					return redirect(url('admin/admin'))->withErrors(['alert-danger'=>'The data couldnot be saved now!']);
+				}			}
+			}
+		}
 
 
