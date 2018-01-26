@@ -22,9 +22,9 @@
 							{{csrf_field()}}
 
 							<div class="form-group">
-								<label for="name" class="col-sm-2 col-sm-2 control-label">Organization Name</label>
+								<label for="name" class="col-sm-2 col-sm-2 control-label">Organization Name <span style="color:red;">*</span> </label>
 								<div class="col-sm-6">
-									<input class="form-control" name="organization_name" value="{{Input::old('organization_name')}}" placeholder="Organization name">
+									<input class="form-control" name="organization_name" value="{{Input::old('organization_name')}}" placeholder="Organization name" required="required">
 								</div>
 							</div>
 							<div class="form-group">

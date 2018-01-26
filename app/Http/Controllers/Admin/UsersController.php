@@ -8,12 +8,14 @@ use App\User;
 use Validator;
 use Input;
 use Image;
+use App\Profile;
 
 class UsersController extends Controller
 {
-	public function __construct(User $user)
+	public function __construct(User $user,Profile $profile)
 	{
 		$this->model=$user;
+		$this->profile=$profile;
 
 	}
 	/* Admin level functions */
@@ -106,13 +108,20 @@ class UsersController extends Controller
 		}
 		public function addUser()
 		{
-			return view('admin.users.admin.create');
+			$profile=$this->profile->all();
+			if($profile->isEmpty())
+			{
+				$profile="false";
+			}
+			
+			return view('admin.users.admin.create',compact('profile'));
 		}
 		public function storeUser(Request $request)
 		{
 			$input=$request->all();
 			$rules=[
-				'first_name'=>'required'
+				'first_name'=>'required',
+				'profile_name'=>'required'
 
 			];
 			$messages=[
@@ -127,31 +136,42 @@ class UsersController extends Controller
 			}
 			else
 			{
-				$input['name']=$request->first_name.' '.$request->middle_name.' '.$request->last_name;
-
-				if (Input::hasFile('signature')) {
-					$path = public_path('uploads/users/signatures');
-					if (!file_exists($path)) {
-						mkdir($path, 0777, true);
-					}
-					$directory = $path;
-					$signature_name = str_replace(' ', '', $request->organization_name) . uniqid();
-					$fileName = $signature_name . '_signature' . '.' . $request->file('signature')->getClientOriginalExtension();
-					$fileNameDir = $directory . '/' . $fileName;
-					$signature = Image::make($request->file('signature'));
-					$signature->fit(200, 200);
-					$signature->save($fileNameDir, 100);
-					$input['signature'] = $fileName;
-				}
-				if($this->model->create($input))
+				$insertedData['title']=$request->profile_name;
+				if($this->profile->create($insertedData))
 				{
-					return redirect(url('admin/admin'))->withErrors(['alert-success'=>'The data has been successfully saved!']);
+					$input['name']=$request->first_name.' '.$request->middle_name.' '.$request->last_name;
+					$input['profile']=$request->profile_name;
+
+					if (Input::hasFile('signature')) {
+						$path = public_path('uploads/users/signatures');
+						if (!file_exists($path)) {
+							mkdir($path, 0777, true);
+						}
+						$directory = $path;
+						$signature_name = str_replace(' ', '', $request->organization_name) . uniqid();
+						$fileName = $signature_name . '_signature' . '.' . $request->file('signature')->getClientOriginalExtension();
+						$fileNameDir = $directory . '/' . $fileName;
+						$signature = Image::make($request->file('signature'));
+						$signature->fit(200, 200);
+						$signature->save($fileNameDir, 100);
+						$input['signature'] = $fileName;
+					}
+					if($this->model->create($input))
+					{
+						return redirect(url('admin/admin'))->withErrors(['alert-success'=>'The data has been successfully saved!']);
+					}
+					else
+					{
+						return redirect(url('admin/admin'))->withErrors(['alert-danger'=>'The data couldnot be saved now!']);
+					}
 				}
 				else
 				{
+
 					return redirect(url('admin/admin'))->withErrors(['alert-danger'=>'The data couldnot be saved now!']);
-				}			}
+				}
 			}
 		}
+	}
 
 
